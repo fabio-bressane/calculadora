@@ -1,20 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name = "autor" content = "Fabio Bressane">
-    <p> Para pesquisar clique neste link <a href="https://www.google.com"> link </a>. </p>
+    <meta name="autor" content="Fabio Bressane">
+    <p> <strong>Para pesquisar clique neste link </strong> <a href="https://www.google.com"> google </a>. </p>
     <title>minha calculadora Web</title>
-    <!- para adicionar um comentario ->
+
+    <!-- para adicionar um comentario aqui -->
+
+    <style type="text/css">
+        /* body */
+        body {
+            margin: 5% 2% 5% 2%;
+        }
+
+        .light-mode {
+            color: black;
+            background: white;
+        }
+
+        .dark-mode {
+            color: white;
+            background: black;
+        }
+
+        /* id */
+        .dark-mode a:link {
+            color: #66ffff;
+            text-decoration: none;
+        }
+
+        .dark-mode a:visited {
+            color: #ff99ff;
+            text-decoration: none;
+        }
+
+        .dark-mode a:hover {
+            text-decoration: underline overline;
+        }
+
+        .dark-mode a:active {
+            color: #ff0000;
+        }
+    </style>
 </head>
 
-<body>
+<body class="light-mode">
+
     <form id="frm">
         <div id="container">
             <div id="topo">
-                <h1>Calculadora simples em HTML e JavaScript</h1>
+                <h1 style="color:red">Calculadora simples em HTML e JavaScript</h1>
             </div>
             <div id="menu">
             </div>
@@ -26,47 +64,48 @@
                 </div>
                 <div class="bloco1">
                     <span>Introduza os numeros:</span><br>
-                    <input type="text" size="2" id="n1" placeholder="n1"><br>
-                    <input type="text" size="2" id="n2" placeholder="n2"><br><br>
+                    <input type="number" size="2" id="n1" placeholder=" introduza o número 1"><br>
+                    <input type="number" size="2" id="n2" placeholder=" introduza o número 2"><br><br>
                     <input type="button" value="+" onClick="calc(this)">
                     <input type="button" value="-" onClick="calc(this)">
                     <input type="button" value="*" onClick="calc(this)">
                     <input type="button" value="/" onClick="calc(this)">
                     <br><br>
                     <input type="button" value="Limpar" onClick="limpar()" />
-                    <!--<input type="button" value="Enviar" onClick="ola('Ola')"-->
                 </div>
             </div>
-            
+
             <div id="bottom">
             </div>
         </div>
     </form>
     <p></p>
-    <footer>copyright 2020 by Fabio</footer> 
-        <script type="text/javascript">
+    <p><br>
+    </p>
+    <p>To perform function dark-mode or light-mode:</p>
+    <p>Option one: <a href="javascript:lightMode()">light-mode</a></p>
+    <p>Option two : <a href="javascript:;" onclick="javascript:darkMode()">dark-mode</a>
+    </p>
+    <p> <br> </p>
+    <p> </p>
+    <div id="caju"> </div>
+    <footer>copyright 2020 by Fabio</footer>
+    <script type="text/javascript">
         function calc(e) {
-
             var operacao = e.value;
-
             var n1 = parseFloat(document.getElementById("n1").value);
             var n2 = parseFloat(document.getElementById("n2").value);
-
             var calculo = eval(n1 + operacao + n2);
-
             if (!isNaN(calculo)) {
                 alert(calculo);
             }
-
         }
-
         function ola(x) {
             var f = document.getElementById("frm");
             var txt = f.txtnome;
             txt.value = "Ola " + txt.value;
             alert(txt.value);
         }
-
         function limpar() {
             //alert("1");
             var f = document.getElementById("frm");
@@ -77,7 +116,16 @@
             n2.value = "";
             txt.value = "";
         }
+        var vetor = document.getElementsByTag("p");
+        alert(vetor[1].innerHTML);
+        function lightMode() {
+            document.body.className = "light-mode";
+            }
+        function darkMode() {
+            document.body.className = "dark-mode";
+        }
     </script>
+    <p></p>
 </body>
 
 </html>
